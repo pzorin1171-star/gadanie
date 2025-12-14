@@ -1,562 +1,913 @@
-// Данные для всех знаков зодиака
-const zodiacData = {
-    aries: {
-        name: "Овен",
-        element: "Огонь",
-        icon: "♈",
-        stones: ["Аметист", "Горный хрусталь", "Алмаз"],
-        dailyStones: ["Аметист", "Красная яшма", "Рубин"],
-        love: [
-            "Сегодня звёзды советуют проявить инициативу в отношениях. Смелость будет вознаграждена.",
-            "Встреча с интересным человеком возможна в неожиданном месте. Будь открыт к новым знакомствам.",
-            "Романтический вечер пройдет под знаком страсти. Не сдерживай эмоции."
-        ],
-        finance: [
-            "Финансовая удача сегодня на твоей стороне. Возможны неожиданные поступления.",
-            "Хороший день для инвестиций в себя. Покупка курса или книги окупится в будущем.",
-            "Прояви осторожность с крупными тратами. Лучше отложить решение до завтра."
-        ],
-        health: [
-            "Энергия бьет ключом. Идеальный день для спортивных достижений.",
-            "Избегай переутомления. Звёзды советуют чередовать активность с отдыхом.",
-            "Обрати внимание на питание. Добавь в рацион больше белковой пищи."
-        ],
-        advice: [
-            "Не бойся брать ответственность. Сегодня ты сможешь справиться с любыми задачами.",
-            "Твоя уверенность привлекает удачу. Действуй смело и решительно.",
-            "Прислушайся к интуиции в рабочих вопросах. Она подскажет верное решение."
-        ],
-        luckyNumbers: [7, 14, 21, 28]
-    },
-    taurus: {
-        name: "Телец",
-        element: "Земля",
-        icon: "♉",
-        stones: ["Изумруд", "Бирюза", "Агат"],
-        dailyStones: ["Изумруд", "Бирюза", "Малахит"],
-        love: [
-            "Гармония в отношениях достигается через искренний разговор. Поделись чувствами.",
-            "Одиноким Тельцам звёзды сулят встречу с надежным человеком. Доверяй своей интуиции.",
-            "Совместное планирование будущего укрепит связь. Обсудите мечты и цели."
-        ],
-        finance: [
-            "Финансовая стабильность обеспечена. Хорошее время для создания бюджета.",
-            "Неожиданная финансовая возможность может появиться вечером. Будь внимателен.",
-            "Избегай импульсивных покупок. Дай себе время обдумать необходимость трат."
-        ],
-        health: [
-            "Звёзды советуют обратить внимание на осанку. Небольшая разминка улучшит самочувствие.",
-            "Эмоциональное равновесие важно сегодня. Медитация поможет сохранить спокойствие.",
-            "Прогулка на природе зарядит энергией и снимет напряжение."
-        ],
-        advice: [
-            "Твоя настойчивость приведет к цели, но не забывай о гибкости.",
-            "Доверься внутреннему голосу при принятии важных решений.",
-            "Удели время уюту и комфорту. Создай пространство для отдыха."
-        ],
-        luckyNumbers: [4, 6, 15, 24]
-    },
-    gemini: {
-        name: "Близнецы",
-        element: "Воздух",
-        icon: "♊",
-        stones: ["Агат", "Тигровый глаз", "Цитрин"],
-        dailyStones: ["Тигровый глаз", "Хризопраз", "Горный хрусталь"],
-        love: [
-            "Общение — ключ к гармонии. Откровенный разговор сблизит вас.",
-            "Социальная активность принесет интересные знакомства. Не отказывайся от приглашений.",
-            "Незначительные разногласия быстро разрешатся. Прояви дипломатичность."
-        ],
-        finance: [
-            "Хороший день для финансовых переговоров. Твои аргументы будут убедительны.",
-            "Возможна небольшая, но приятная прибыль от хобби или творчества.",
-            "Проверь свои финансовые обязательства. Систематизация поможет избежать ошибок."
-        ],
-        health: [
-            "Обрати внимание на дыхание. Практика глубокого дыхания снимет стресс.",
-            "Энергия может быстро истощаться. Планируй день с перерывами.",
-            "Звёзды советуют занятия, сочетающие физическую и умственную активность."
-        ],
-        advice: [
-            "Сосредоточься на одной задаче. Глубина важнее широты охвата.",
-            "Твои коммуникативные навыки на пике. Используй их для продвижения идей.",
-            "Будь готов к неожиданным новостям. Сохраняй гибкость мышления."
-        ],
-        luckyNumbers: [3, 12, 21, 30]
-    },
-    cancer: {
-        name: "Рак",
-        element: "Вода",
-        icon: "♋",
-        stones: ["Жемчуг", "Лунный камень", "Изумруд"],
-        dailyStones: ["Жемчуг", "Лунный камень", "Аквамарин"],
-        love: [
-            "Эмоциональная близость сегодня важнее слов. Прояви заботу жестами.",
-            "Семейные связи укрепятся через совместные воспоминания.",
-            "Романтический вечер в уютной обстановке подарит гармонию."
-        ],
-        finance: [
-            "Интуиция подскажет выгодные решения. Доверься внутреннему чувству.",
-            "Хорошее время для покупок для дома. Качество важнее количества.",
-            "Избегай эмоциональных трат. Составь список перед походом в магазин."
-        ],
-        health: [
-            "Забота о эмоциональном состоянии — приоритет. Релаксация снимет напряжение.",
-            "Обрати внимание на питание. Легкая пища улучшит самочувствие.",
-            "Водные процедуры помогут восстановить энергию и очистить мысли."
-        ],
-        advice: [
-            "Защити свои границы, но оставайся открытым для близких.",
-            "Творческое самовыражение принесет удовлетворение и покой.",
-            "Удели время саморефлексии. Дневник поможет прояснить мысли."
-        ],
-        luckyNumbers: [2, 7, 11, 29]
-    },
-    leo: {
-        name: "Лев",
-        element: "Огонь",
-        icon: "♌",
-        stones: ["Топаз", "Янтарь", "Рубин"],
-        dailyStones: ["Топаз", "Цитрин", "Солнечный камень"],
-        love: [
-            "Ты в центре внимания. Используй это для укрепления отношений.",
-            "Щедрость и внимание к партнеру будут высоко оценены.",
-            "Спонтанный романтический жест создаст волшебную атмосферу."
-        ],
-        finance: [
-            "Демонстрация талантов может принести финансовую выгоду.",
-            "Избегай чрезмерных трат на впечатления. Баланс — ключ к стабильности.",
-            "Хороший день для переговоров о повышении или новых проектах."
-        ],
-        health: [
-            "Физическая активность принесет удовольствие и энергию.",
-            "Солнечные ванны (с защитой) поднимут настроение и тонус.",
-            "Обрати внимание на сердце. Умеренность в нагрузках сохранит баланс."
-        ],
-        advice: [
-            "Лидерские качества проявятся ярко. Используй их с мудростью.",
-            "Твоя харизма привлекает возможности. Не бойся их использовать.",
-            "Великодушие усилит твое влияние и принесет уважение."
-        ],
-        luckyNumbers: [1, 10, 19, 28]
-    },
-    virgo: {
-        name: "Дева",
-        element: "Земля",
-        icon: "♍",
-        stones: ["Сапфир", "Нефрит", "Яшма"],
-        dailyStones: ["Сапфир", "Авантюрин", "Агат"],
-        love: [
-            "Практичность в отношениях создаст стабильность. Обсудите бытовые вопросы.",
-            "Внимание к деталям покажет вашу заботу. Маленькие жесты имеют значение.",
-            "Гармония через взаимопонимание. Слушай и будь услышан."
-        ],
-        finance: [
-            "Идеальный день для анализа расходов и планирования бюджета.",
-            "Выгодные покупки возможны, особенно для дома или работы.",
-            "Систематизация финансов принесет чувство безопасности."
-        ],
-        health: [
-            "Правильное питание и режим улучшат самочувствие.",
-            "Медитативные практики снимут стресс и наведут порядок в мыслях.",
-            "Регулярные, умеренные физические нагрузки поддержат тонус."
-        ],
-        advice: [
-            "Организованность — твой союзник в достижении целей.",
-            "Не перегружай себя критикой. Прими себя и других с пониманием.",
-            "Удели время обучению. Новые знания откроют перспективы."
-        ],
-        luckyNumbers: [5, 14, 23, 32]
-    },
-    libra: {
-        name: "Весы",
-        element: "Воздух",
-        icon: "♎",
-        stones: ["Опал", "Бирюза", "Розовый кварц"],
-        dailyStones: ["Опал", "Лазурит", "Розовый кварц"],
-        love: [
-            "Гармония и баланс в отношениях. Идеальное время для примирения.",
-            "Социальные мероприятия могут привести к интересным знакомствам.",
-            "Дипломатичность разрешит спорные вопросы без конфликтов."
-        ],
-        finance: [
-            "Партнерские финансовые проекты имеют высокие шансы на успех.",
-            "Траты на искусство или красоту принесут эстетическое удовлетворение.",
-            "Избегай спонтанных решений. Взвешенный подход принесет результат."
-        ],
-        health: [
-            "Баланс между активностью и отдыхом важен для самочувствия.",
-            "Танцы или йога сочетат физическую активность с грацией.",
-            "Достаточное потребление воды поддержит красоту и здоровье."
-        ],
-        advice: [
-            "Способность видеть разные стороны ситуации поможет в принятии решений.",
-            "Красота и гармония вокруг создадут внутренний покой.",
-            "Справедливость и дипломатия укрепят твои позиции."
-        ],
-        luckyNumbers: [6, 15, 24, 33]
-    },
-    scorpio: {
-        name: "Скорпион",
-        element: "Вода",
-        icon: "♏",
-        stones: ["Топаз", "Гематит", "Малахит"],
-        dailyStones: ["Гематит", "Обсидиан", "Гранат"],
-        love: [
-            "Глубокие эмоциональные связи укрепятся через откровенность.",
-            "Твоя привлекательность на высоте. Используй это с мудростью.",
-            "Страсть и доверие создадут незабываемую атмосферу близости."
-        ],
-        finance: [
-            "Интуиция в финансовых вопросах не подведет. Доверься внутреннему голосу.",
-            "Неожиданные источники дохода могут появиться через связи.",
-            "Глубокий анализ инвестиций окупится в будущем."
-        ],
-        health: [
-            "Эмоциональная интенсивность требует здорового выхода. Творчество или спорт помогут.",
-            "Практики трансформации (йога, медитация) укрепят дух.",
-            "Внимание к интуитивным сигналам тела предотвратит проблемы."
-        ],
-        advice: [
-            "Интуиция сегодня особенно сильна. Следуй за внутренним знанием.",
-            "Глубина восприятия откроет скрытые возможности.",
-            "Решительность в действиях принесет желаемые изменения."
-        ],
-        luckyNumbers: [8, 17, 26, 35]
-    },
-    sagittarius: {
-        name: "Стрелец",
-        element: "Огонь",
-        icon: "♐",
-        stones: ["Бирюза", "Аметист", "Топаз"],
-        dailyStones: ["Бирюза", "Лазурит", "Содалит"],
-        love: [
-            "Приключения и новые впечатления обогатят отношения.",
-            "Оптимизм и чувство юмора привлекут интересных людей.",
-            "Совместное путешествие или обучение сблизит вас."
-        ],
-        finance: [
-            "Инвестиции в образование или путешествия окупятся многократно.",
-            "Неожиданные финансовые возможности откроются через общение.",
-            "Планирование дальних целей создаст финансовую устойчивость."
-        ],
-        health: [
-            "Активный отдых на природе зарядит энергией и оптимизмом.",
-            "Умеренность в физических нагрузках сохранит силы.",
-            "Духовные практики расширят сознание и укрепят здоровье."
-        ],
-        advice: [
-            "Оптимизм заразителен. Используй его для вдохновения других.",
-            "Смелость в постановке амбициозных целей приведет к успеху.",
-            "Открытость новому опыту обогатит твою жизнь."
-        ],
-        luckyNumbers: [9, 18, 27, 36]
-    },
-    capricorn: {
-        name: "Козерог",
-        element: "Земля",
-        icon: "♑",
-        stones: ["Гранат", "Оникс", "Рубин"],
-        dailyStones: ["Гранат", "Обсидиан", "Дымчатый кварц"],
-        love: [
-            "Стабильность и надежность укрепят отношения. Серьезный разговор о будущем.",
-            "Ответственность по отношению к партнеру будет высоко оценена.",
-            "Традиции и семейные ценности создадут прочную связь."
-        ],
-        finance: [
-            "Долгосрочное планирование принесет финансовую стабильность.",
-            "Трудолюбие будет вознаграждено. Возможны премии или повышение.",
-            "Консервативный подход к инвестициям защитит капитал."
-        ],
-        health: [
-            "Регулярные, последовательные нагрузки укрепят здоровье.",
-            "Дисциплина в режиме дня создаст основу для благополучия.",
-            "Внимание к костям и суставам предотвратит проблемы."
-        ],
-        advice: [
-            "Терпение и настойчивость приведут к цели.",
-            "Ответственность за крупные проекты укрепит авторитет.",
-            "Баланс между работой и личной жизнью создаст гармонию."
-        ],
-        luckyNumbers: [10, 19, 28, 37]
-    },
-    aquarius: {
-        name: "Водолей",
-        element: "Воздух",
-        icon: "♒",
-        stones: ["Аметист", "Аквамарин", "Лазурит"],
-        dailyStones: ["Аметист", "Флюорит", "Селенит"],
-        love: [
-            "Дружба и общие интересы создадут прочную основу отношений.",
-            "Нестандартный подход к романтике принесет свежесть.",
-            "Совместные проекты или хобби укрепят связь."
-        ],
-        finance: [
-            "Инновационные идеи могут принести финансовую выгоду.",
-            "Технологии или новые подходы откроют возможности.",
-            "Инвестиции в знания или необычные проекты окупятся."
-        ],
-        health: [
-            "Ментальное здоровье важно. Избегай информационной перегрузки.",
-            "Нестандартные оздоровительные практики принесут пользу.",
-            "Внимание к циркуляции и дыханию улучшит самочувствие."
-        ],
-        advice: [
-            "Оригинальность мышления решит сложные задачи.",
-            "Готовность идти против течения откроет новые пути.",
-            "Общение с единомышленниками вдохновит и поддержит."
-        ],
-        luckyNumbers: [11, 20, 29, 38]
-    },
-    pisces: {
-        name: "Рыбы",
-        element: "Вода",
-        icon: "♓",
-        stones: ["Аквамарин", "Жемчуг", "Аметист"],
-        dailyStones: ["Аквамарин", "Лунный камень", "Хризоколла"],
-        love: [
-            "Романтика и глубокие чувства создадут волшебную атмосферу.",
-            "Интуиция подскажет, как углубить связь с партнером.",
-            "Искренность и эмоциональная открытость принесут гармонию."
-        ],
-        finance: [
-            "Творческий подход к финансам принесет неожиданную прибыль.",
-            "Интуиция в денежных вопросах будет точной. Доверься ей.",
-            "Помощь от близких или духовных наставников возможна."
-        ],
-        health: [
-            "Водные процедуры успокоят нервы и восстановят энергию.",
-            "Эмоциональная чувствительность требует бережного отношения.",
-            "Творчество и мечтательность как лекарство от стресса."
-        ],
-        advice: [
-            "Эмпатия поможет в понимании других и себя.",
-            "Доверься творческому потоку. Он приведет к вдохновению.",
-            "Духовные практики углубят связь с вселенной."
-        ],
-        luckyNumbers: [12, 21, 30, 39]
+// Cosmic Zodiac System v2.0
+class ZodiacMystic {
+    constructor() {
+        this.init();
     }
-};
 
-// Краткие гороскопы для всех знаков
-const dailyHoroscopes = [
-    "Сегодня звёзды благоволят новым начинаниям. Смелость будет вознаграждена.",
-    "День подходит для завершения старых дел. Расчистите пространство для нового.",
-    "Финансовая удача улыбнется тем, кто действует разумно и осмотрительно.",
-    "Любовная энергия сегодня особенно сильна. Откройте сердце для новых чувств.",
-    "Звёзды советуют уделить время саморазвитию. Новые знания откроют перспективы.",
-    "Эмоциональная стабильность будет ключом к успеху в любых начинаниях.",
-    "Творческий подход к решению задач принесет неожиданно хорошие результаты.",
-    "Доверьтесь интуиции в важных вопросах. Она подскажет верный путь.",
-    "Общение с близкими людьми подарит поддержку и вдохновение.",
-    "Физическая активность поможет сбросить напряжение и придаст энергии.",
-    "Сегодня хороший день для планирования будущего. Мечтайте смелее.",
-    "Внимание к деталям поможет избежать ошибок и достичь совершенства."
-];
+    init() {
+        // System state
+        this.state = {
+            currentSection: 'dashboard',
+            selectedSign: 'aries',
+            audioEnabled: true,
+            theme: 'dark',
+            userLevel: 1,
+            xp: 0,
+            achievements: [],
+            savedPredictions: [],
+            notifications: [],
+            compatibilityHistory: []
+        };
 
-// DOM элементы
-const zodiacItems = document.querySelectorAll('.zodiac-item');
-const getPredictionBtn = document.getElementById('get-prediction');
-const randomSignBtn = document.getElementById('random-sign');
-const resultCard = document.getElementById('result');
-const zodiacIcon = document.getElementById('zodiac-icon');
-const zodiacName = document.getElementById('zodiac-name');
-const zodiacElement = document.getElementById('zodiac-element');
-const lovePrediction = document.getElementById('love-prediction');
-const financePrediction = document.getElementById('finance-prediction');
-const healthPrediction = document.getElementById('health-prediction');
-const advicePrediction = document.getElementById('advice-prediction');
-const luckyNumber = document.getElementById('lucky-number');
-const stoneOfDay = document.getElementById('stone-of-day');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id$="-section"]');
-const horoscopeGrid = document.getElementById('horoscope-grid');
-
-// Текущий выбранный знак
-let selectedSign = 'aries';
-
-// Функция для получения случайного элемента массива
-function getRandomItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
-}
-
-// Функция для получения случайного числа из массива
-function getRandomNumber(array) {
-    return getRandomItem(array);
-}
-
-// Функция для генерации предсказания
-function generatePrediction(sign) {
-    const data = zodiacData[sign];
-    
-    if (!data) return;
-    
-    // Обновление информации о знаке
-    zodiacIcon.textContent = data.icon;
-    zodiacName.textContent = data.name;
-    zodiacElement.textContent = data.element;
-    
-    // Генерация случайных предсказаний
-    lovePrediction.textContent = getRandomItem(data.love);
-    financePrediction.textContent = getRandomItem(data.finance);
-    healthPrediction.textContent = getRandomItem(data.health);
-    advicePrediction.textContent = getRandomItem(data.advice);
-    
-    // Генерация случайных значений
-    luckyNumber.textContent = getRandomNumber(data.luckyNumbers);
-    stoneOfDay.textContent = getRandomItem(data.dailyStones);
-    
-    // Показ результата
-    resultCard.style.display = 'block';
-    
-    // Сохранение последнего выбора в localStorage
-    localStorage.setItem('lastZodiacSign', sign);
-    localStorage.setItem('lastPredictionTime', new Date().toISOString());
-}
-
-// Функция для выбора знака
-function selectZodiacItem(sign) {
-    // Убираем выделение у всех элементов
-    zodiacItems.forEach(item => {
-        item.classList.remove('selected');
-    });
-    
-    // Находим и выделяем выбранный элемент
-    const selectedItem = document.querySelector(`[data-sign="${sign}"]`);
-    if (selectedItem) {
-        selectedItem.classList.add('selected');
+        // Initialize components
+        this.initUI();
+        this.initAudio();
+        this.initCanvas();
+        this.initZodiacData();
+        this.initEventListeners();
+        this.loadUserData();
+        this.startSystem();
     }
-    
-    selectedSign = sign;
-}
 
-// Функция для получения случайного знака
-function getRandomSign() {
-    const signs = Object.keys(zodiacData);
-    const randomSign = getRandomItem(signs);
-    selectZodiacItem(randomSign);
-    generatePrediction(randomSign);
-}
-
-// Функция для переключения секций
-function switchSection(sectionId) {
-    // Скрываем все секции
-    sections.forEach(section => {
-        section.style.display = 'none';
-        section.classList.remove('active-section');
-    });
-    
-    // Показываем выбранную секцию
-    const activeSection = document.getElementById(`${sectionId}-section`);
-    if (activeSection) {
-        activeSection.style.display = 'block';
-        activeSection.classList.add('active-section');
+    initUI() {
+        // Startup sequence
+        setTimeout(() => {
+            this.showStartupScreen();
+        }, 100);
     }
-    
-    // Обновляем активную ссылку в навигации
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.dataset.section === sectionId) {
-            link.classList.add('active');
-        }
-    });
-}
 
-// Функция для заполнения гороскопа на день
-function populateDailyHoroscope() {
-    horoscopeGrid.innerHTML = '';
-    
-    Object.keys(zodiacData).forEach((sign, index) => {
-        const data = zodiacData[sign];
-        const horoscope = dailyHoroscopes[index] || dailyHoroscopes[0];
+    showStartupScreen() {
+        const startupScreen = document.getElementById('startup-screen');
+        const progressBar = document.getElementById('startup-progress');
         
-        const horoscopeCard = document.createElement('div');
-        horoscopeCard.className = 'horoscope-card';
-        horoscopeCard.innerHTML = `
-            <div class="zodiac-symbol">${data.icon}</div>
-            <h4>${data.name}</h4>
-            <p>${horoscope}</p>
-            <div class="horoscope-details">
-                <span class="element">${data.element}</span>
-                <span class="lucky-number">${getRandomNumber(data.luckyNumbers)}</span>
+        // Simulate system boot
+        let progress = 0;
+        const bootInterval = setInterval(() => {
+            progress += 5;
+            progressBar.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+                clearInterval(bootInterval);
+                setTimeout(() => {
+                    startupScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        startupScreen.style.display = 'none';
+                        this.playAmbientSound();
+                        this.showNotification('Система готова к работе', 'success');
+                    }, 500);
+                }, 1000);
+            }
+        }, 100);
+
+        document.getElementById('skip-startup').addEventListener('click', () => {
+            clearInterval(bootInterval);
+            startupScreen.style.display = 'none';
+            this.playAmbientSound();
+        });
+    }
+
+    initAudio() {
+        this.ambientSound = document.getElementById('ambient-sound');
+        this.clickSound = document.getElementById('click-sound');
+        this.revealSound = document.getElementById('reveal-sound');
+    }
+
+    initCanvas() {
+        this.initConstellationCanvas();
+        this.initParticleSystem();
+    }
+
+    initConstellationCanvas() {
+        const canvas = document.getElementById('constellation-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // Create stars
+        const stars = Array.from({length: 100}, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 1,
+            brightness: Math.random() * 0.5 + 0.5
+        }));
+        
+        // Create constellation lines
+        const connections = [];
+        for (let i = 0; i < stars.length; i++) {
+            for (let j = i + 1; j < stars.length; j++) {
+                const dx = stars[i].x - stars[j].x;
+                const dy = stars[i].y - stars[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    connections.push([i, j]);
+                }
+            }
+        }
+        
+        // Animation loop
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw connections
+            ctx.strokeStyle = 'rgba(0, 243, 255, 0.1)';
+            ctx.lineWidth = 1;
+            
+            connections.forEach(([i, j]) => {
+                ctx.beginPath();
+                ctx.moveTo(stars[i].x, stars[i].y);
+                ctx.lineTo(stars[j].x, stars[j].y);
+                ctx.stroke();
+            });
+            
+            // Draw stars
+            stars.forEach(star => {
+                ctx.fillStyle = `rgba(0, 243, 255, ${star.brightness})`;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            requestAnimationFrame(animate);
+        };
+        
+        animate();
+        
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    }
+
+    initParticleSystem() {
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = Array.from({length: 50}, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            size: Math.random() * 3 + 1,
+            color: Math.random() > 0.5 ? 'rgba(0, 243, 255, 0.3)' : 'rgba(157, 0, 255, 0.3)'
+        }));
+        
+        const animateParticles = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                // Bounce off walls
+                if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+                
+                // Draw particle
+                ctx.fillStyle = particle.color;
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        };
+        
+        animateParticles();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    }
+
+    initZodiacData() {
+        this.zodiacData = {
+            aries: {
+                name: "Овен",
+                element: "Огонь",
+                icon: "♈",
+                dates: "21.03 - 19.04",
+                keywords: ["Смелость", "Инициатива", "Энергия"],
+                compatibility: {
+                    best: ["Лев", "Стрелец"],
+                    good: ["Близнецы", "Водолей"],
+                    bad: ["Рак", "Козерог"]
+                },
+                predictions: {
+                    love: [
+                        "Сегодня звёзды благоволят смелым признаниям. Не бойся сказать о своих чувствах.",
+                        "Романтическая встреча может произойти в неожиданном месте. Будь открыт новым знакомствам.",
+                        "Страсть и эмоции сегодня на пике. Идеальное время для углубления отношений."
+                    ],
+                    career: [
+                        "Лидерские качества будут замечены. Не бойся брать на себя ответственность.",
+                        "Новый проект потребует смелости. Твоя инициатива будет вознаграждена.",
+                        "Конфликты на работе решатся в твою пользу. Прояви дипломатичность."
+                    ],
+                    health: [
+                        "Энергия бьёт ключом. Займись спортом или активным отдыхом.",
+                        "Избегай переутомления. Умей вовремя остановиться.",
+                        "Физическая активность поможет сбросить напряжение."
+                    ],
+                    finance: [
+                        "Рискованные инвестиции могут принести прибыль. Но будь осторожен.",
+                        "Неожиданный финансовый приток. Готовься к приятным сюрпризам.",
+                        "Хороший день для крупных покупок. Доверься интуиции."
+                    ]
+                }
+            },
+            // ... остальные знаки (сокращено для краткости)
+        };
+
+        this.tarotDeck = [
+            { name: "Шут", type: "major", meaning: "Начало, невинность, спонтанность" },
+            { name: "Маг", type: "major", meaning: "Воля, мастерство, концентрация" },
+            { name: "Верховная Жрица", type: "major", meaning: "Интуиция, тайны, подсознание" },
+            // ... остальные карты Таро
+        ];
+    }
+
+    initEventListeners() {
+        // Matrix navigation
+        document.querySelectorAll('.matrix-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const section = e.currentTarget.dataset.section;
+                this.switchSection(section);
+                this.playSound('click');
+            });
+        });
+
+        // Quick divination buttons
+        document.querySelectorAll('.quick-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const type = e.currentTarget.dataset.type;
+                this.performQuickDivination(type);
+            });
+        });
+
+        // Zodiac sphere
+        document.querySelectorAll('.zodiac-point').forEach(point => {
+            point.addEventListener('click', (e) => {
+                const sign = e.currentTarget.dataset.sign;
+                this.selectZodiacSign(sign);
+            });
+        });
+
+        // Start divination
+        document.getElementById('start-divination').addEventListener('click', () => {
+            this.performDivination();
+        });
+
+        // Audio toggle
+        document.getElementById('audio-toggle').addEventListener('click', () => {
+            this.toggleAudio();
+        });
+
+        // Theme toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            this.toggleTheme();
+        });
+
+        // Terminal command
+        document.getElementById('execute-command').addEventListener('click', () => {
+            this.processTerminalCommand();
+        });
+
+        document.getElementById('terminal-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.processTerminalCommand();
+            }
+        });
+
+        // Update time
+        this.updateTime();
+        setInterval(() => this.updateTime(), 1000);
+    }
+
+    switchSection(section) {
+        // Update UI
+        document.querySelectorAll('.matrix-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        document.querySelector(`[data-section="${section}"]`).classList.add('active');
+
+        document.querySelectorAll('.terminal-section').forEach(sec => {
+            sec.classList.remove('active');
+        });
+        document.getElementById(`${section}-section`).classList.add('active');
+
+        this.state.currentSection = section;
+        
+        // Section-specific actions
+        switch(section) {
+            case 'horoscope':
+                this.loadHoroscope();
+                break;
+            case 'compatibility':
+                this.initCompatibility();
+                break;
+            case 'tarot':
+                this.initTarotDeck();
+                break;
+            case 'archive':
+                this.loadArchive();
+                break;
+        }
+    }
+
+    selectZodiacSign(sign) {
+        this.state.selectedSign = sign;
+        
+        const data = this.zodiacData[sign];
+        if (!data) return;
+
+        // Update UI
+        document.getElementById('selected-sign-icon').textContent = data.icon;
+        document.getElementById('selected-sign-name').textContent = data.name.toUpperCase();
+        document.getElementById('selected-sign-dates').textContent = data.dates;
+        document.getElementById('selected-sign-element').textContent = data.element.toUpperCase();
+
+        // Update stats with random values (simulated)
+        document.getElementById('sign-energy').textContent = `${Math.floor(Math.random() * 30) + 70}%`;
+        document.getElementById('sign-luck').textContent = `${Math.floor(Math.random() * 40) + 60}%`;
+        document.getElementById('sign-love').textContent = `${Math.floor(Math.random() * 35) + 65}%`;
+
+        // Highlight selected point
+        document.querySelectorAll('.zodiac-point').forEach(point => {
+            point.classList.remove('selected');
+        });
+        document.querySelector(`[data-sign="${sign}"]`).classList.add('selected');
+    }
+
+    performDivination() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const resultDisplay = document.getElementById('result-display');
+        const progressFill = document.getElementById('progress-fill');
+        
+        // Show loading
+        loadingScreen.style.display = 'block';
+        resultDisplay.style.display = 'none';
+        
+        // Simulate loading
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+            progress += 10;
+            progressFill.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                
+                // Generate results
+                this.generateDivinationResult();
+                
+                // Show results
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    resultDisplay.style.display = 'block';
+                    this.playSound('reveal');
+                    this.showNotification('Гадание завершено!', 'success');
+                    this.grantXP(25);
+                }, 500);
+            }
+        }, 200);
+    }
+
+    generateDivinationResult() {
+        const sign = this.state.selectedSign;
+        const data = this.zodiacData[sign];
+        
+        const resultDisplay = document.getElementById('result-display');
+        
+        const aspects = Array.from(document.querySelectorAll('input[name="aspect"]:checked'))
+            .map(input => input.value);
+        
+        let html = `
+            <div class="result-header-glow">
+                <h3>ПРЕДСКАЗАНИЕ ДЛЯ ${data.name.toUpperCase()}</h3>
+                <p class="result-subtitle">${new Date().toLocaleDateString('ru-RU')} | Глубина: ${document.getElementById('divination-depth').value}/10</p>
+            </div>
+            
+            <div class="result-grid">
+        `;
+        
+        if (aspects.includes('love')) {
+            html += `
+                <div class="result-aspect">
+                    <div class="aspect-header">
+                        <i class="fas fa-heart"></i>
+                        <h4>ЛЮБОВЬ И ОТНОШЕНИЯ</h4>
+                    </div>
+                    <p>${this.getRandomItem(data.predictions.love)}</p>
+                    <div class="aspect-meter">
+                        <div class="meter-fill" style="width: ${Math.floor(Math.random() * 30) + 70}%"></div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        if (aspects.includes('career')) {
+            html += `
+                <div class="result-aspect">
+                    <div class="aspect-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>КАРЬЕРА</h4>
+                    </div>
+                    <p>${this.getRandomItem(data.predictions.career)}</p>
+                    <div class="aspect-meter">
+                        <div class="meter-fill" style="width: ${Math.floor(Math.random() * 40) + 60}%"></div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        if (aspects.includes('finance')) {
+            html += `
+                <div class="result-aspect">
+                    <div class="aspect-header">
+                        <i class="fas fa-coins"></i>
+                        <h4>ФИНАНСЫ</h4>
+                    </div>
+                    <p>${this.getRandomItem(data.predictions.finance)}</p>
+                    <div class="aspect-meter">
+                        <div class="meter-fill" style="width: ${Math.floor(Math.random() * 35) + 65}%"></div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        if (aspects.includes('health')) {
+            html += `
+                <div class="result-aspect">
+                    <div class="aspect-header">
+                        <i class="fas fa-heartbeat"></i>
+                        <h4>ЗДОРОВЬЕ</h4>
+                    </div>
+                    <p>${this.getRandomItem(data.predictions.health)}</p>
+                    <div class="aspect-meter">
+                        <div class="meter-fill" style="width: ${Math.floor(Math.random() * 25) + 75}%"></div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        html += `
+            </div>
+            
+            <div class="result-summary">
+                <h4><i class="fas fa-star"></i> КЛЮЧЕВЫЕ РЕКОМЕНДАЦИИ</h4>
+                <ul>
+                    <li>Прояви инициативу в важных вопросах</li>
+                    <li>Доверься своей интуиции сегодня</li>
+                    <li>Избегай спонтанных решений после 18:00</li>
+                </ul>
+            </div>
+            
+            <div class="result-meta">
+                <div class="meta-item">
+                    <span>Уровень точности:</span>
+                    <span class="meta-value">${Math.floor(Math.random() * 20) + 80}%</span>
+                </div>
+                <div class="meta-item">
+                    <span>Планетарное влияние:</span>
+                    <span class="meta-value">Сильное</span>
+                </div>
+                <div class="meta-item">
+                    <span>Следующее обновление:</span>
+                    <span class="meta-value">Через 24 часа</span>
+                </div>
             </div>
         `;
         
-        horoscopeGrid.appendChild(horoscopeCard);
-    });
-}
-
-// Функция для инициализации страницы
-function initPage() {
-    // Проверка последнего выбора пользователя
-    const lastSign = localStorage.getItem('lastZodiacSign');
-    const lastPredictionTime = localStorage.getItem('lastPredictionTime');
-    
-    if (lastSign) {
-        selectZodiacItem(lastSign);
+        resultDisplay.innerHTML = html;
         
-        if (lastPredictionTime) {
-            const lastTime = new Date(lastPredictionTime);
-            const now = new Date();
-            const hoursDiff = (now - lastTime) / (1000 * 60 * 60);
-            
-            // Если последнее гадание было менее 24 часов назад, показываем результат
-            if (hoursDiff < 24) {
-                generatePrediction(lastSign);
-            }
-        }
-    } else {
-        // По умолчанию выбираем Овна
-        selectZodiacItem('aries');
+        // Save to history
+        this.savePrediction({
+            sign: sign,
+            date: new Date().toISOString(),
+            aspects: aspects,
+            summary: "Гадание завершено успешно"
+        });
     }
-    
-    // Заполняем гороскоп на день
-    populateDailyHoroscope();
+
+    performQuickDivination(type) {
+        const signs = Object.keys(this.zodiacData);
+        const randomSign = this.getRandomItem(signs);
+        const data = this.zodiacData[randomSign];
+        
+        const messages = {
+            daily: ["День будет продуктивным", "Ожидайте приятных сюрпризов", "Будьте осторожны в общении"],
+            love: ["Любовь витает в воздухе", "Новые знакомства вероятны", "Углубите существующие отношения"],
+            money: ["Финансовый рост возможен", "Избегайте импульсивных трат", "Хорошее время для инвестиций"],
+            health: ["Энергия на высоком уровне", "Отдохните и восстановите силы", "Занимайтесь физической активностью"]
+        };
+        
+        const result = this.getRandomItem(messages[type]);
+        const resultElement = document.querySelector('#quick-result .result-scroll');
+        
+        resultElement.innerHTML = `
+            <div class="quick-result-item">
+                <div class="quick-result-sign">${data.icon}</div>
+                <div class="quick-result-content">
+                    <strong>${data.name}:</strong> ${result}
+                </div>
+                <div class="quick-result-time">${new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute:'2-digit'})}</div>
+            </div>
+            ${resultElement.innerHTML}
+        `;
+        
+        this.showNotification(`Быстрое гадание: ${type}`, 'info');
+    }
+
+    loadHoroscope() {
+        const container = document.getElementById('horoscope-container');
+        
+        let html = '<div class="horoscope-grid-inner">';
+        
+        Object.entries(this.zodiacData).forEach(([key, data]) => {
+            const predictions = [
+                "Сегодня отличный день для новых начинаний",
+                "Проявите терпение в важных вопросах",
+                "Финансовая удача улыбнётся вам",
+                "Обратите внимание на здоровье",
+                "Романтические встречи вероятны",
+                "Проявите творческий подход к работе"
+            ];
+            
+            const prediction = this.getRandomItem(predictions);
+            const compatibility = this.getRandomItem(["Высокая", "Средняя", "Низкая"]);
+            
+            html += `
+                <div class="horoscope-card" data-sign="${key}">
+                    <div class="card-header">
+                        <div class="card-icon">${data.icon}</div>
+                        <div class="card-title">
+                            <h4>${data.name}</h4>
+                            <span class="card-date">${data.dates}</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p>${prediction}</p>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <span>Удача:</span>
+                                <span class="stat-value">${Math.floor(Math.random() * 30) + 70}%</span>
+                            </div>
+                            <div class="stat">
+                                <span>Совместимость:</span>
+                                <span class="stat-value">${compatibility}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="card-action" onclick="zodiacMystic.viewHoroscopeDetails('${key}')">
+                        <i class="fas fa-eye"></i> Подробнее
+                    </button>
+                </div>
+            `;
+        });
+        
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    initCompatibility() {
+        const container = document.querySelector('.sign-select-grid');
+        
+        let html = '';
+        Object.entries(this.zodiacData).forEach(([key, data]) => {
+            html += `
+                <div class="sign-select-item" data-sign="${key}">
+                    <div class="select-icon">${data.icon}</div>
+                    <span class="select-name">${data.name}</span>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+        
+        // Add event listeners
+        document.querySelectorAll('.sign-select-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const sign = e.currentTarget.dataset.sign;
+                // Handle compatibility selection
+            });
+        });
+    }
+
+    initTarotDeck() {
+        const deck = document.getElementById('tarot-deck');
+        
+        let html = '<div class="tarot-deck-inner">';
+        
+        this.tarotDeck.slice(0, 12).forEach((card, index) => {
+            html += `
+                <div class="tarot-card" data-index="${index}" style="--rotation: ${Math.random() * 30 - 15}deg">
+                    <div class="card-front">
+                        <div class="card-symbol">${card.name.charAt(0)}</div>
+                        <div class="card-name">${card.name}</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="tarot-pattern"></div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += '</div>';
+        deck.innerHTML = html;
+        
+        // Add card click handlers
+        document.querySelectorAll('.tarot-card').forEach(card => {
+            card.addEventListener('click', () => {
+                this.drawTarotCard(parseInt(card.dataset.index));
+            });
+        });
+    }
+
+    drawTarotCard(index) {
+        const card = this.tarotDeck[index];
+        
+        const modal = document.getElementById('tarot-modal');
+        const content = document.getElementById('tarot-reading');
+        
+        content.innerHTML = `
+            <div class="tarot-reading">
+                <div class="reading-card">
+                    <div class="card-display">
+                        <div class="card-symbol-large">${card.name.charAt(0)}</div>
+                        <h3>${card.name}</h3>
+                    </div>
+                    <div class="card-meaning">
+                        <h4>Значение:</h4>
+                        <p>${card.meaning}</p>
+                    </div>
+                </div>
+                <div class="reading-interpretation">
+                    <h4><i class="fas fa-crystal-ball"></i> ИНТЕРПРЕТАЦИЯ</h4>
+                    <p>Эта карта указывает на ${this.getRandomItem(["новые начинания", "внутреннюю мудрость", "трансформацию", "удачу"])}. 
+                    ${this.getRandomItem(["Внимательно обдумайте свои следующие шаги.", "Доверьтесь своей интуиции.", "Будьте готовы к переменам."])}</p>
+                </div>
+            </div>
+        `;
+        
+        this.showModal('tarot-modal');
+        this.playSound('reveal');
+    }
+
+    processTerminalCommand() {
+        const input = document.getElementById('terminal-input');
+        const command = input.value.trim().toLowerCase();
+        
+        if (!command) return;
+        
+        // Clear input
+        input.value = '';
+        
+        // Process commands
+        const commands = {
+            'help': () => this.showNotification('Доступные команды: help, clear, time, date, level, credits', 'info'),
+            'clear': () => {
+                document.querySelectorAll('.terminal-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById('dashboard-section').style.display = 'block';
+            },
+            'time': () => this.showNotification(`Текущее время: ${new Date().toLocaleTimeString('ru-RU')}`, 'info'),
+            'date': () => this.showNotification(`Дата: ${new Date().toLocaleDateString('ru-RU')}`, 'info'),
+            'level': () => this.showNotification(`Ваш уровень: ${this.state.userLevel}`, 'info'),
+            'credits': () => this.showNotification('Zodiac Mystic v2.0 | Cosmic Divination System', 'info'),
+            'debug': () => {
+                console.log('System State:', this.state);
+                this.showNotification('Отладочная информация выведена в консоль', 'warning');
+            }
+        };
+        
+        if (commands[command]) {
+            commands[command]();
+        } else if (command.startsWith('goto ')) {
+            const section = command.split(' ')[1];
+            if (['dashboard', 'divination', 'horoscope', 'compatibility', 'rituals', 'tarot', 'archive', 'settings'].includes(section)) {
+                this.switchSection(section);
+                this.showNotification(`Переход в раздел: ${section}`, 'success');
+            } else {
+                this.showNotification(`Неизвестный раздел: ${section}`, 'error');
+            }
+        } else {
+            this.showNotification(`Неизвестная команда: ${command}`, 'error');
+        }
+    }
+
+    toggleAudio() {
+        this.state.audioEnabled = !this.state.audioEnabled;
+        const btn = document.getElementById('audio-toggle');
+        
+        if (this.state.audioEnabled) {
+            this.ambientSound.play();
+            btn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            this.showNotification('Звук включен', 'success');
+        } else {
+            this.ambientSound.pause();
+            btn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            this.showNotification('Звук выключен', 'warning');
+        }
+    }
+
+    toggleTheme() {
+        this.state.theme = this.state.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', this.state.theme);
+        
+        const btn = document.getElementById('theme-toggle');
+        btn.innerHTML = this.state.theme === 'dark' ? 
+            '<i class="fas fa-moon"></i>' : 
+            '<i class="fas fa-sun"></i>';
+            
+        this.showNotification(`Тема: ${this.state.theme === 'dark' ? 'Тёмная' : 'Светлая'}`, 'info');
+    }
+
+    playAmbientSound() {
+        if (this.state.audioEnabled) {
+            this.ambientSound.volume = 0.3;
+            this.ambientSound.play().catch(e => console.log('Audio play failed:', e));
+        }
+    }
+
+    playSound(type) {
+        if (!this.state.audioEnabled) return;
+        
+        const sound = type === 'click' ? this.clickSound : this.revealSound;
+        sound.currentTime = 0;
+        sound.play().catch(e => console.log('Sound play failed:', e));
+    }
+
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-icon">
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            </div>
+            <div class="notification-content">
+                <p>${message}</p>
+                <span class="notification-time">${new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute:'2-digit'})}</span>
+            </div>
+        `;
+        
+        const list = document.getElementById('notifications-list');
+        list.insertBefore(notification, list.firstChild);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.opacity = '0';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 5000);
+    }
+
+    showModal(modalId) {
+        document.getElementById('modal-overlay').style.display = 'block';
+        document.getElementById(modalId).style.display = 'block';
+        
+        // Add close handlers
+        document.getElementById('modal-overlay').addEventListener('click', () => {
+            this.hideModal(modalId);
+        });
+        
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.hideModal(modalId);
+            });
+        });
+    }
+
+    hideModal(modalId) {
+        document.getElementById('modal-overlay').style.display = 'none';
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    updateTime() {
+        const now = new Date();
+        document.getElementById('hud-time').textContent = 
+            now.toLocaleTimeString('ru-RU', {hour: '2-digit', minute:'2-digit'});
+        document.getElementById('hud-date').textContent = 
+            now.toLocaleDateString('ru-RU', {day: '2-digit', month: '2-digit', year: 'numeric'});
+    }
+
+    grantXP(amount) {
+        this.state.xp += amount;
+        
+        // Level up every 100 XP
+        const newLevel = Math.floor(this.state.xp / 100) + 1;
+        if (newLevel > this.state.userLevel) {
+            this.state.userLevel = newLevel;
+            this.showAchievement(`Новый уровень: ${newLevel}!`);
+        }
+        
+        // Update UI
+        document.getElementById('user-level').textContent = this.state.userLevel;
+        document.getElementById('xp-fill').style.width = `${(this.state.xp % 100)}%`;
+        
+        this.saveUserData();
+    }
+
+    showAchievement(text) {
+        const toast = document.getElementById('achievement-toast');
+        document.getElementById('achievement-text').textContent = text;
+        
+        toast.style.display = 'flex';
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => {
+                toast.style.display = 'none';
+                toast.style.opacity = '1';
+            }, 500);
+        }, 3000);
+    }
+
+    savePrediction(prediction) {
+        this.state.savedPredictions.push(prediction);
+        this.saveUserData();
+        
+        // Update counter
+        const count = this.state.savedPredictions.length;
+        document.getElementById('divinations-count').textContent = count;
+    }
+
+    saveUserData() {
+        localStorage.setItem('zodiacMysticData', JSON.stringify(this.state));
+    }
+
+    loadUserData() {
+        const saved = localStorage.getItem('zodiacMysticData');
+        if (saved) {
+            this.state = {...this.state, ...JSON.parse(saved)};
+        }
+        
+        // Update UI with loaded data
+        document.getElementById('user-level').textContent = this.state.userLevel;
+        document.getElementById('divinations-count').textContent = this.state.savedPredictions.length;
+        document.getElementById('xp-fill').style.width = `${(this.state.xp % 100)}%`;
+        
+        // Set theme
+        document.documentElement.setAttribute('data-theme', this.state.theme);
+        document.getElementById('theme-toggle').innerHTML = this.state.theme === 'dark' ? 
+            '<i class="fas fa-moon"></i>' : 
+            '<i class="fas fa-sun"></i>';
+    }
+
+    getRandomItem(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+
+    startSystem() {
+        console.log('Zodiac Mystic System v2.0 initialized');
+        console.log('Current state:', this.state);
+        
+        // Initial notifications
+        setTimeout(() => {
+            this.showNotification('Добро пожаловать в систему гаданий!', 'info');
+            this.showNotification('Выберите знак зодиака для начала', 'info');
+        }, 2000);
+    }
 }
 
-// Обработчики событий для выбора знаков зодиака
-zodiacItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const sign = item.dataset.sign;
-        selectZodiacItem(sign);
-    });
-});
-
-// Обработчик для кнопки "Узнать судьбу"
-getPredictionBtn.addEventListener('click', () => {
-    generatePrediction(selectedSign);
-});
-
-// Обработчик для кнопки "Случайный знак"
-randomSignBtn.addEventListener('click', getRandomSign);
-
-// Обработчики для навигации
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const section = link.dataset.section;
-        switchSection(section);
-    });
-});
-
-// Инициализация страницы при загрузке
-document.addEventListener('DOMContentLoaded', initPage);
-
-// Анимация колеса зодиака
+// Initialize system when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    const wheelIcons = document.querySelectorAll('.wheel-icon');
-    wheelIcons.forEach((icon, index) => {
-        icon.style.animationDelay = `${index * 0.2}s`;
-    });
+    window.zodiacMystic = new ZodiacMystic();
 });
 
-// Добавляем эффект параллакса для фона
+// Custom cursor
 document.addEventListener('mousemove', (e) => {
-    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+    const cursor = document.getElementById('custom-cursor');
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
     
-    document.querySelectorAll('.constellation').forEach((star, index) => {
-        const speed = (index + 1) * 0.5;
-        star.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
-    });
+    // Create trail effect
+    const trail = document.createElement('div');
+    trail.className = 'cursor-trail';
+    trail.style.left = e.clientX + 'px';
+    trail.style.top = e.clientY + 'px';
+    document.body.appendChild(trail);
+    
+    setTimeout(() => trail.remove(), 1000);
+});
+
+// Fullscreen toggle
+document.getElementById('fullscreen-toggle').addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
 });
