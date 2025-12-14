@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гадание по знаку зодиака</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♋</text></svg>">
+</head>
+<body>
+    <!-- Фоновые звезды -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-star-and-crescent"></i>
+                <h1>Гадание по знаку зодиака</h1>
+            </div>
+            <p class="tagline">Раскройте тайны вашего будущего с помощью звёзд</p>
+        </header>
+        
+        <main class="main-content">
+            <section class="intro">
+                <p>Добро пожаловать в мир астрологии и предсказаний! Выберите свой знак зодиака и получите персональное предсказание на сегодня, основанное на положении планет и звёзд.</p>
+            </section>
+            
+            <div class="control-panel">
+                <div class="zodiac-selector">
+                    <label for="zodiac-sign"><i class="fas fa-moon"></i> Выберите ваш знак зодиака:</label>
+                    <select id="zodiac-sign">
+                        <option value="" disabled selected>-- Выберите знак --</option>
+                        <option value="aries">♈ Овен (21 марта - 19 апреля)</option>
+                        <option value="taurus">♉ Телец (20 апреля - 20 мая)</option>
+                        <option value="gemini">♊ Близнецы (21 мая - 20 июня)</option>
+                        <option value="cancer">♋ Рак (21 июня - 22 июля)</option>
+                        <option value="leo">♌ Лев (23 июля - 22 августа)</option>
+                        <option value="virgo">♍ Дева (23 августа - 22 сентября)</option>
+                        <option value="libra">♎ Весы (23 сентября - 22 октября)</option>
+                        <option value="scorpio">♏ Скорпион (23 октября - 21 ноября)</option>
+                        <option value="sagittarius">♐ Стрелец (22 ноября - 21 декабря)</option>
+                        <option value="capricorn">♑ Козерог (22 декабря - 19 января)</option>
+                        <option value="aquarius">♒ Водолей (20 января - 18 февраля)</option>
+                        <option value="pisces">♓ Рыбы (19 февраля - 20 марта)</option>
+                    </select>
+                    
+                    <div class="buttons">
+                        <button id="get-prediction" class="btn-primary">
+                            <i class="fas fa-crystal-ball"></i> Получить предсказание
+                        </button>
+                        <button id="random-sign" class="btn-secondary">
+                            <i class="fas fa-random"></i> Случайный знак
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="energy-indicator">
+                    <p>Энергия знака сегодня:</p>
+                    <div class="energy-bar">
+                        <div class="energy-fill" id="energy-fill">75%</div>
+                    </div>
+                </div>
+                
+                <div class="timer">
+                    <p><i class="fas fa-hourglass-half"></i> Следующее гадание доступно через:</p>
+                    <div id="countdown">00:00:00</div>
+                </div>
+            </div>
+            
+            <section class="result-section">
+                <h2><i class="fas fa-scroll"></i> Ваше предсказание</h2>
+                <div id="result" class="result-card hidden">
+                    <div class="result-header">
+                        <div class="zodiac-icon" id="zodiac-icon">♈</div>
+                        <div>
+                            <h3 id="zodiac-name">Овен</h3>
+                            <p id="zodiac-dates">21 марта - 19 апреля</p>
+                            <p id="zodiac-element">Стихия: <span>Огонь</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="prediction-content">
+                        <div class="prediction-grid">
+                            <div class="prediction-item">
+                                <h4><i class="fas fa-heart"></i> Любовный прогноз</h4>
+                                <p id="love-prediction">Сегодня звезды благоволят вашей личной жизни...</p>
+                            </div>
+                            <div class="prediction-item">
+                                <h4><i class="fas fa-coins"></i> Финансы</h4>
+                                <p id="finance-prediction">В финансовых вопросах сегодня стоит проявить осторожность...</p>
+                            </div>
+                            <div class="prediction-item">
+                                <h4><i class="fas fa-heartbeat"></i> Здоровье</h4>
+                                <p id="health-prediction">Энергия сегодня на высоком уровне, но не перегружайте себя...</p>
+                            </div>
+                            <div class="prediction-item">
+                                <h4><i class="fas fa-lightbulb"></i> Совет дня</h4>
+                                <p id="advice-prediction">Прислушайтесь к своему внутреннему голосу...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="prediction-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Счастливое число:</span>
+                                <span class="detail-value" id="lucky-number">7</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Камень дня:</span>
+                                <span class="detail-value" id="stone-of-day">Аметист</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Камни-талисманы:</span>
+                                <span class="detail-value" id="talisman-stones">Аметист, Горный хрусталь</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="share-section">
+                        <p>Поделиться предсказанием:</p>
+                        <div class="share-buttons">
+                            <button class="share-btn" id="share-vk">
+                                <i class="fab fa-vk"></i> ВКонтакте
+                            </button>
+                            <button class="share-btn" id="share-telegram">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </button>
+                            <button class="share-btn" id="share-twitter">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="no-result" class="no-result">
+                    <i class="fas fa-star"></i>
+                    <p>Выберите знак зодиака и нажмите "Получить предсказание", чтобы увидеть ваше будущее.</p>
+                </div>
+            </section>
+            
+            <section class="subscription">
+                <h3><i class="fas fa-envelope"></i> Подписка на ежедневные предсказания</h3>
+                <p>Получайте персональные предсказания каждый день на вашу почту!</p>
+                <form id="subscription-form">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Ваш email" required>
+                        <select id="subscription-zodiac">
+                            <option value="aries">Овен</option>
+                            <option value="taurus">Телец</option>
+                            <option value="gemini">Близнецы</option>
+                            <option value="cancer">Рак</option>
+                            <option value="leo">Лев</option>
+                            <option value="virgo">Дева</option>
+                            <option value="libra">Весы</option>
+                            <option value="scorpio">Скорпион</option>
+                            <option value="sagittarius">Стрелец</option>
+                            <option value="capricorn">Козерог</option>
+                            <option value="aquarius">Водолей</option>
+                            <option value="pisces">Рыбы</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Подписаться
+                    </button>
+                </form>
+                <p class="form-notice">Мы не передаем ваши данные третьим лицам. Отписаться можно в любое время.</p>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <span>Гадание по знаку зодиака</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2023 Гадание по знаку зодиака. Все предсказания носят развлекательный характер.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
