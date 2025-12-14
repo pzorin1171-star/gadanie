@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гадание по знаку зодиака</title>
+    <title>Звёздные предсказания</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,177 +17,273 @@
     <div id="stars2"></div>
     <div id="stars3"></div>
     
+    <!-- Констелляции (созвездия) -->
+    <div class="constellations">
+        <div class="constellation" style="top: 10%; left: 5%;"></div>
+        <div class="constellation" style="top: 30%; left: 80%;"></div>
+        <div class="constellation" style="top: 60%; left: 20%;"></div>
+        <div class="constellation" style="top: 80%; left: 70%;"></div>
+    </div>
+    
     <div class="container">
         <header class="header">
             <div class="logo">
-                <i class="fas fa-star-and-crescent"></i>
-                <h1>Гадание по знаку зодиака</h1>
+                <div class="logo-icon">
+                    <i class="fas fa-stars"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Звёздные предсказания</h1>
+                    <p class="tagline">Слушай шепот вселенной</p>
+                </div>
             </div>
-            <p class="tagline">Раскройте тайны вашего будущего с помощью звёзд</p>
+            <div class="mystic-nav">
+                <a href="#" class="nav-link active" data-section="prediction">
+                    <i class="fas fa-crystal-ball"></i>
+                    <span>Гадание</span>
+                </a>
+                <a href="#" class="nav-link" data-section="horoscope">
+                    <i class="fas fa-star"></i>
+                    <span>Гороскоп</span>
+                </a>
+                <a href="#" class="nav-link" data-section="rituals">
+                    <i class="fas fa-moon"></i>
+                    <span>Ритуалы</span>
+                </a>
+            </div>
         </header>
         
         <main class="main-content">
-            <section class="intro">
-                <p>Добро пожаловать в мир астрологии и предсказаний! Выберите свой знак зодиака и получите персональное предсказание на сегодня, основанное на положении планет и звёзд.</p>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Раскрой тайны судьбы</h2>
+                    <p>Каждая звезда на небе хранит секреты твоего будущего. Узнай, что приготовили для тебя звёзды сегодня.</p>
+                </div>
+                <div class="zodiac-wheel">
+                    <div class="wheel-icon">♈</div>
+                    <div class="wheel-icon">♉</div>
+                    <div class="wheel-icon">♊</div>
+                    <div class="wheel-icon">♋</div>
+                    <div class="wheel-icon">♌</div>
+                    <div class="wheel-icon">♍</div>
+                    <div class="wheel-icon">♎</div>
+                    <div class="wheel-icon">♏</div>
+                    <div class="wheel-icon">♐</div>
+                    <div class="wheel-icon">♑</div>
+                    <div class="wheel-icon">♒</div>
+                    <div class="wheel-icon">♓</div>
+                </div>
             </section>
             
-            <div class="control-panel">
+            <section class="prediction-section active-section" id="prediction-section">
                 <div class="zodiac-selector">
-                    <label for="zodiac-sign"><i class="fas fa-moon"></i> Выберите ваш знак зодиака:</label>
-                    <select id="zodiac-sign">
-                        <option value="" disabled selected>-- Выберите знак --</option>
-                        <option value="aries">♈ Овен (21 марта - 19 апреля)</option>
-                        <option value="taurus">♉ Телец (20 апреля - 20 мая)</option>
-                        <option value="gemini">♊ Близнецы (21 мая - 20 июня)</option>
-                        <option value="cancer">♋ Рак (21 июня - 22 июля)</option>
-                        <option value="leo">♌ Лев (23 июля - 22 августа)</option>
-                        <option value="virgo">♍ Дева (23 августа - 22 сентября)</option>
-                        <option value="libra">♎ Весы (23 сентября - 22 октября)</option>
-                        <option value="scorpio">♏ Скорпион (23 октября - 21 ноября)</option>
-                        <option value="sagittarius">♐ Стрелец (22 ноября - 21 декабря)</option>
-                        <option value="capricorn">♑ Козерог (22 декабря - 19 января)</option>
-                        <option value="aquarius">♒ Водолей (20 января - 18 февраля)</option>
-                        <option value="pisces">♓ Рыбы (19 февраля - 20 марта)</option>
-                    </select>
+                    <div class="selector-header">
+                        <h3><i class="fas fa-search"></i> Выбери свой путь</h3>
+                        <p>Знак зодиака определяет твою энергетику и путь судьбы</p>
+                    </div>
                     
-                    <div class="buttons">
-                        <button id="get-prediction" class="btn-primary">
-                            <i class="fas fa-crystal-ball"></i> Получить предсказание
+                    <div class="zodiac-grid">
+                        <div class="zodiac-item" data-sign="aries">
+                            <div class="zodiac-symbol">♈</div>
+                            <span class="zodiac-name">Овен</span>
+                            <span class="zodiac-dates">21.03 - 19.04</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="taurus">
+                            <div class="zodiac-symbol">♉</div>
+                            <span class="zodiac-name">Телец</span>
+                            <span class="zodiac-dates">20.04 - 20.05</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="gemini">
+                            <div class="zodiac-symbol">♊</div>
+                            <span class="zodiac-name">Близнецы</span>
+                            <span class="zodiac-dates">21.05 - 20.06</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="cancer">
+                            <div class="zodiac-symbol">♋</div>
+                            <span class="zodiac-name">Рак</span>
+                            <span class="zodiac-dates">21.06 - 22.07</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="leo">
+                            <div class="zodiac-symbol">♌</div>
+                            <span class="zodiac-name">Лев</span>
+                            <span class="zodiac-dates">23.07 - 22.08</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="virgo">
+                            <div class="zodiac-symbol">♍</div>
+                            <span class="zodiac-name">Дева</span>
+                            <span class="zodiac-dates">23.08 - 22.09</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="libra">
+                            <div class="zodiac-symbol">♎</div>
+                            <span class="zodiac-name">Весы</span>
+                            <span class="zodiac-dates">23.09 - 22.10</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="scorpio">
+                            <div class="zodiac-symbol">♏</div>
+                            <span class="zodiac-name">Скорпион</span>
+                            <span class="zodiac-dates">23.10 - 21.11</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="sagittarius">
+                            <div class="zodiac-symbol">♐</div>
+                            <span class="zodiac-name">Стрелец</span>
+                            <span class="zodiac-dates">22.11 - 21.12</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="capricorn">
+                            <div class="zodiac-symbol">♑</div>
+                            <span class="zodiac-name">Козерог</span>
+                            <span class="zodiac-dates">22.12 - 19.01</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="aquarius">
+                            <div class="zodiac-symbol">♒</div>
+                            <span class="zodiac-name">Водолей</span>
+                            <span class="zodiac-dates">20.01 - 18.02</span>
+                        </div>
+                        <div class="zodiac-item" data-sign="pisces">
+                            <div class="zodiac-symbol">♓</div>
+                            <span class="zodiac-name">Рыбы</span>
+                            <span class="zodiac-dates">19.02 - 20.03</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="get-prediction" class="mystic-btn">
+                            <i class="fas fa-eye"></i>
+                            <span>Узнать судьбу</span>
                         </button>
-                        <button id="random-sign" class="btn-secondary">
-                            <i class="fas fa-random"></i> Случайный знак
+                        <button id="random-sign" class="mystic-btn outline">
+                            <i class="fas fa-dice"></i>
+                            <span>Случайный знак</span>
                         </button>
                     </div>
                 </div>
                 
-                <div class="energy-indicator">
-                    <p>Энергия знака сегодня:</p>
-                    <div class="energy-bar">
-                        <div class="energy-fill" id="energy-fill">75%</div>
-                    </div>
-                </div>
-                
-                <div class="timer">
-                    <p><i class="fas fa-hourglass-half"></i> Следующее гадание доступно через:</p>
-                    <div id="countdown">00:00:00</div>
-                </div>
-            </div>
-            
-            <section class="result-section">
-                <h2><i class="fas fa-scroll"></i> Ваше предсказание</h2>
-                <div id="result" class="result-card hidden">
+                <div class="prediction-result" id="result">
                     <div class="result-header">
-                        <div class="zodiac-icon" id="zodiac-icon">♈</div>
-                        <div>
-                            <h3 id="zodiac-name">Овен</h3>
-                            <p id="zodiac-dates">21 марта - 19 апреля</p>
-                            <p id="zodiac-element">Стихия: <span>Огонь</span></p>
+                        <div class="current-sign">
+                            <div class="sign-icon" id="zodiac-icon">♈</div>
+                            <div class="sign-info">
+                                <h3 id="zodiac-name">Овен</h3>
+                                <p class="sign-element" id="zodiac-element">Огонь</p>
+                            </div>
+                        </div>
+                        <div class="celestial-info">
+                            <div class="celestial-item">
+                                <i class="fas fa-gem"></i>
+                                <span id="stone-of-day">Аметист</span>
+                            </div>
+                            <div class="celestial-item">
+                                <i class="fas fa-hashtag"></i>
+                                <span id="lucky-number">7</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="prediction-content">
-                        <div class="prediction-grid">
-                            <div class="prediction-item">
-                                <h4><i class="fas fa-heart"></i> Любовный прогноз</h4>
-                                <p id="love-prediction">Сегодня звезды благоволят вашей личной жизни...</p>
+                        <div class="prediction-card">
+                            <div class="card-icon">
+                                <i class="fas fa-heart"></i>
                             </div>
-                            <div class="prediction-item">
-                                <h4><i class="fas fa-coins"></i> Финансы</h4>
-                                <p id="finance-prediction">В финансовых вопросах сегодня стоит проявить осторожность...</p>
-                            </div>
-                            <div class="prediction-item">
-                                <h4><i class="fas fa-heartbeat"></i> Здоровье</h4>
-                                <p id="health-prediction">Энергия сегодня на высоком уровне, но не перегружайте себя...</p>
-                            </div>
-                            <div class="prediction-item">
-                                <h4><i class="fas fa-lightbulb"></i> Совет дня</h4>
-                                <p id="advice-prediction">Прислушайтесь к своему внутреннему голосу...</p>
+                            <div class="card-content">
+                                <h4>Любовь</h4>
+                                <p id="love-prediction">Сегодня звёзды благоволят твоей личной жизни...</p>
                             </div>
                         </div>
                         
-                        <div class="prediction-details">
-                            <div class="detail-item">
-                                <span class="detail-label">Счастливое число:</span>
-                                <span class="detail-value" id="lucky-number">7</span>
+                        <div class="prediction-card">
+                            <div class="card-icon">
+                                <i class="fas fa-coins"></i>
                             </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Камень дня:</span>
-                                <span class="detail-value" id="stone-of-day">Аметист</span>
+                            <div class="card-content">
+                                <h4>Финансы</h4>
+                                <p id="finance-prediction">Финансовая энергия сегодня стабильна...</p>
                             </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Камни-талисманы:</span>
-                                <span class="detail-value" id="talisman-stones">Аметист, Горный хрусталь</span>
+                        </div>
+                        
+                        <div class="prediction-card">
+                            <div class="card-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Здоровье</h4>
+                                <p id="health-prediction">Энергия на высоком уровне, но береги силы...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="prediction-card">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Совет звёзд</h4>
+                                <p id="advice-prediction">Прислушайся к внутреннему голосу сегодня...</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="share-section">
-                        <p>Поделиться предсказанием:</p>
-                        <div class="share-buttons">
-                            <button class="share-btn" id="share-vk">
-                                <i class="fab fa-vk"></i> ВКонтакте
-                            </button>
-                            <button class="share-btn" id="share-telegram">
-                                <i class="fab fa-telegram"></i> Telegram
-                            </button>
-                            <button class="share-btn" id="share-twitter">
-                                <i class="fab fa-twitter"></i> Twitter
-                            </button>
-                        </div>
+                    <div class="mystic-message">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Помни: ты не просто наблюдатель, а создатель своей судьбы. Звёзды лишь указывают путь.</p>
+                        <i class="fas fa-quote-right"></i>
                     </div>
-                </div>
-                
-                <div id="no-result" class="no-result">
-                    <i class="fas fa-star"></i>
-                    <p>Выберите знак зодиака и нажмите "Получить предсказание", чтобы увидеть ваше будущее.</p>
                 </div>
             </section>
             
-            <section class="subscription">
-                <h3><i class="fas fa-envelope"></i> Подписка на ежедневные предсказания</h3>
-                <p>Получайте персональные предсказания каждый день на вашу почту!</p>
-                <form id="subscription-form">
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Ваш email" required>
-                        <select id="subscription-zodiac">
-                            <option value="aries">Овен</option>
-                            <option value="taurus">Телец</option>
-                            <option value="gemini">Близнецы</option>
-                            <option value="cancer">Рак</option>
-                            <option value="leo">Лев</option>
-                            <option value="virgo">Дева</option>
-                            <option value="libra">Весы</option>
-                            <option value="scorpio">Скорпион</option>
-                            <option value="sagittarius">Стрелец</option>
-                            <option value="capricorn">Козерог</option>
-                            <option value="aquarius">Водолей</option>
-                            <option value="pisces">Рыбы</option>
-                        </select>
+            <section class="horoscope-section" id="horoscope-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-star"></i> Гороскоп дня</h3>
+                    <p>Краткие предсказания для всех знаков</p>
+                </div>
+                <div class="horoscope-grid" id="horoscope-grid">
+                    <!-- Заполняется JavaScript -->
+                </div>
+            </section>
+            
+            <section class="rituals-section" id="rituals-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-moon"></i> Ритуалы полнолуния</h3>
+                    <p>Энергетические практики для очищения и привлечения удачи</p>
+                </div>
+                <div class="rituals-content">
+                    <div class="ritual-card">
+                        <div class="ritual-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h4>Очищение водой</h4>
+                        <p>Примите ванну с морской солью при свете луны для очищения энергетики.</p>
                     </div>
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-paper-plane"></i> Подписаться
-                    </button>
-                </form>
-                <p class="form-notice">Мы не передаем ваши данные третьим лицам. Отписаться можно в любое время.</p>
+                    <div class="ritual-card">
+                        <div class="ritual-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h4>Огонь желаний</h4>
+                        <p>Запишите желание на бумаге и сожгите при свече, отпуская его во вселенную.</p>
+                    </div>
+                    <div class="ritual-card">
+                        <div class="ritual-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Земля изобилия</h4>
+                        <p>Посадите растение в полнолуние для привлечения финансового благополучия.</p>
+                    </div>
+                </div>
             </section>
         </main>
         
         <footer class="footer">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-star-and-crescent"></i>
-                    <span>Гадание по знаку зодиака</span>
+                <div class="mystic-sigil">
+                    <div class="sigil-circle"></div>
+                    <div class="sigil-line"></div>
+                    <div class="sigil-star"></div>
                 </div>
-                <div class="footer-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
+                <div class="footer-text">
+                    <p>Звёздные предсказания</p>
+                    <p class="copyright">Вселенная говорит с теми, кто умеет слушать</p>
                 </div>
-                <p class="copyright">&copy; 2023 Гадание по знаку зодиака. Все предсказания носят развлекательный характер.</p>
             </div>
         </footer>
     </div>
+    
+    <div class="mystic-overlay"></div>
     
     <script src="script.js"></script>
 </body>
